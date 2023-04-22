@@ -1,0 +1,6 @@
+This is my second text fileTHis is the secod line of my second file
+Third line of my second file
+FOurth line of my second file
+
+Fifth line of the file
+SIxth line

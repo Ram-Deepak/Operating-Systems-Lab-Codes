@@ -1,0 +1,28 @@
+#include <stdio.h>
+#include <stdlib.h>
+#include <unistd.h>
+#include <pthread.h>
+#include <semaphore.h>
+
+sem_t chopsticks[5];
+void *philos(void *N){
+	int ph = *(int*)N;
+	printf("phil %d ", ph);
+#include <stdio.h>
+#include <stdlib.h>
+
+
+void main(){
+	int N[5];
+	pthread_t T[5];
+	
+	for(int i=0; i<5; i++)
+		sem_init(&chopsticks[i], 0, 1);
+
+	for(int i=0; i<5; i++){
+		N[i]=i;
+		pthread_create(&T[i],NULL, philos, (void*)&N[i]);
+	}
+	for(int i=0; i<5; i++)
+		pthread_join(&T[i], NULL);
+}
